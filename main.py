@@ -18,7 +18,7 @@ from prompt_toolkit.history import InMemoryHistory
 from rich.console import Console
 
 # ── SIFRA modules ───────────────────────────────────────────────────────────
-from config import AI_API_KEY
+# from config import AI_API_KEY
 from database.database import init_db
 from core.ai_engine import AIEngine
 from core.conversation import Conversation
@@ -92,15 +92,15 @@ def startup() -> tuple[AIEngine, Conversation]:
     # ── AI Engine ─────────────────────────────────────────────────────────
     print_startup_status("Initialising AI engine…")
 
-    if not AI_API_KEY:
-        console.print(
-            "\n[bold red]✘  AI_API_KEY is not set.[/bold red]\n"
-            "  Create a [bold cyan].env[/bold cyan] file in the project root "
-            "and add your key:\n\n"
-            "    [dim]AI_API_KEY=your_api_key_here[/dim]\n\n"
-            "  See [bold cyan].env.example[/bold cyan] for a template.\n"
-        )
-        sys.exit(1)
+    # if not AI_API_KEY:
+    #     console.print(
+    #         "\n[bold red]✘  AI_API_KEY is not set.[/bold red]\n"
+    #         "  Create a [bold cyan].env[/bold cyan] file in the project root "
+    #         "and add your key:\n\n"
+    #         "    [dim]AI_API_KEY=your_api_key_here[/dim]\n\n"
+    #         "  See [bold cyan].env.example[/bold cyan] for a template.\n"
+    #     )
+    #     sys.exit(1)
 
     try:
         engine = AIEngine()
