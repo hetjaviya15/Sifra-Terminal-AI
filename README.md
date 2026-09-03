@@ -1,55 +1,388 @@
-# SIFRA – AI Terminal Assistant
+# 🤖 SIFRA – AI Terminal Assistant
 
 > *Your Intelligent Terminal Companion*
 
-SIFRA is a futuristic, conversational AI assistant that runs entirely inside
-your terminal. Built with Python, Rich, and an OpenAI-compatible API backend,
-SIFRA offers a polished command-line chat experience with persistent memory,
-conversation history, and a strong personality.
+SIFRA is a futuristic, conversational AI assistant that runs directly inside your terminal.
+
+Built with **Python** and **Rich**, SIFRA provides natural AI conversations, long-term memory, chat history, slash commands, and a beautiful terminal interface.
+
+Users **do not need their own AI API key**. SIFRA connects securely to a hosted backend server that communicates with the AI provider.
 
 ---
 
-## ✨ Features
+# ✨ Features
 
 | Feature | Details |
 |---|---|
-| **AI Chat** | Natural conversations powered by any OpenAI-compatible model |
-| **SIFRA Personality** | Friendly, intelligent, slightly playful female AI |
-| **Session Memory** | Full context maintained within a session |
-| **Long-term Memory** | Saves facts (name, preferences, projects) across sessions |
-| **Chat History** | Browse and re-read past conversations (SQLite) |
-| **Slash Commands** | `/help`, `/history`, `/memory`, `/forget`, `/new`, `/clear`, `/about`, `/exit` |
-| **Beautiful UI** | Rich panels, Markdown rendering, spinners, colour themes |
-| **Modular Design** | Swap AI providers by changing two lines in `.env` |
+| 🤖 AI Chat | Natural conversations with SIFRA |
+| 🔑 No API Key Required | Users can simply install and run SIFRA |
+| 🧠 Long-term Memory | Saves important information across sessions |
+| 💬 Chat History | Stores and displays previous conversations |
+| ⚡ Slash Commands | Quick commands for controlling SIFRA |
+| 🎨 Beautiful UI | Modern terminal interface built with Rich |
+| 🔒 Secure Backend | AI provider credentials remain on the backend server |
+| 🗄 SQLite Database | Stores conversations and memories locally |
 
 ---
 
-## 🗂 Project Structure
+# 🚀 Installation Guide
 
+## Step 1 — Install Python
+
+Make sure Python **3.11 or newer** is installed.
+
+Check your Python version:
+
+### macOS / Linux
+
+```bash
+python3 --version
 ```
-sifra/
+
+### Windows
+
+```bash
+python --version
+```
+
+If Python is not installed, install it from:
+
+https://www.python.org/downloads/
+
+---
+
+## Step 2 — Install Git
+
+Check whether Git is installed:
+
+```bash
+git --version
+```
+
+If Git is not installed, download it from:
+
+https://git-scm.com/downloads
+
+---
+
+## Step 3 — Clone the SIFRA Repository
+
+Open Terminal, PowerShell, or Command Prompt and run:
+
+```bash
+git clone https://github.com/hetjaviya15/Sifra-Terminal-AI.git
+```
+
+Then enter the project folder:
+
+```bash
+cd Sifra-Terminal-AI
+```
+
+---
+
+# 🍎 macOS Setup
+
+## Step 4 — Create a Virtual Environment
+
+```bash
+python3 -m venv .venv
+```
+
+## Step 5 — Activate the Virtual Environment
+
+```bash
+source .venv/bin/activate
+```
+
+You should now see something similar to:
+
+```text
+(.venv)
+```
+
+at the beginning of your terminal line.
+
+---
+
+## Step 6 — Install Dependencies
+
+```bash
+python3 -m pip install -r requirements.txt
+```
+
+This installs all required Python packages.
+
+---
+
+## Step 7 — Create the Environment File
+
+```bash
+cp .env.example .env
+```
+
+You do **not** need to add your own AI API key.
+
+---
+
+## Step 8 — Run SIFRA
+
+```bash
+python3 main.py
+```
+
+🎉 SIFRA should now start inside your terminal.
+
+---
+
+# ⚡ macOS Quick Installation
+
+If you want to perform the complete installation at once, open Terminal and paste:
+
+```bash
+cd ~/Desktop && \
+git clone https://github.com/hetjaviya15/Sifra-Terminal-AI.git && \
+cd Sifra-Terminal-AI && \
+python3 -m venv .venv && \
+source .venv/bin/activate && \
+python3 -m pip install -r requirements.txt && \
+cp .env.example .env && \
+python3 main.py
+```
+
+---
+
+# 🔄 Running SIFRA Again on macOS
+
+After installing SIFRA once, you do not need to install dependencies again.
+
+Open Terminal and run:
+
+```bash
+cd ~/Desktop/Sifra-Terminal-AI
+source .venv/bin/activate
+python3 main.py
+```
+
+---
+
+# 🪟 Windows Setup
+
+## Step 4 — Create a Virtual Environment
+
+Open PowerShell and run:
+
+```powershell
+python -m venv .venv
+```
+
+---
+
+## Step 5 — Activate the Virtual Environment
+
+### PowerShell
+
+```powershell
+.venv\Scripts\Activate.ps1
+```
+
+### Command Prompt
+
+```cmd
+.venv\Scripts\activate
+```
+
+---
+
+## Step 6 — Install Dependencies
+
+```bash
+python -m pip install -r requirements.txt
+```
+
+---
+
+## Step 7 — Create the Environment File
+
+### PowerShell
+
+```powershell
+copy .env.example .env
+```
+
+### Command Prompt
+
+```cmd
+copy .env.example .env
+```
+
+No AI API key is required.
+
+---
+
+## Step 8 — Run SIFRA
+
+```bash
+python main.py
+```
+
+🎉 SIFRA should now start inside your terminal.
+
+---
+
+# ⚡ Windows Quick Installation
+
+Open PowerShell and run:
+
+```powershell
+cd $HOME\Desktop
+git clone https://github.com/hetjaviya15/Sifra-Terminal-AI.git
+cd Sifra-Terminal-AI
+python -m venv .venv
+.venv\Scripts\Activate.ps1
+python -m pip install -r requirements.txt
+copy .env.example .env
+python main.py
+```
+
+---
+
+# 🔄 Running SIFRA Again on Windows
+
+Open PowerShell and run:
+
+```powershell
+cd $HOME\Desktop\Sifra-Terminal-AI
+.venv\Scripts\Activate.ps1
+python main.py
+```
+
+---
+
+# 🔐 No API Key Required
+
+Normal SIFRA users do **not** need to create an AI API key.
+
+The application works like this:
+
+```text
+User
+  ↓
+SIFRA Terminal Application
+  ↓
+Secure SIFRA Backend
+  ↓
+AI Provider
+```
+
+The AI provider credentials remain securely stored on the backend server.
+
+This means users can simply:
+
+```text
+Clone → Install → Run → Chat 🤖
+```
+
+---
+
+# 💬 Slash Commands
+
+| Command | Description |
+|---|---|
+| `/help` | Show all available commands |
+| `/new` | Start a fresh conversation |
+| `/history` | Browse previous conversations |
+| `/memory` | View saved long-term memories |
+| `/forget <key>` | Delete a saved memory |
+| `/clear` | Clear the terminal screen |
+| `/about` | Learn more about SIFRA |
+| `/exit` | Exit SIFRA gracefully |
+
+---
+
+# 🧠 Long-Term Memory
+
+SIFRA can remember important information across sessions.
+
+Example:
+
+```text
+You    ▸ My name is Het and I'm building a Flask application.
+
+SIFRA  ▸ Nice to meet you, Het! I'll remember that you're building a Flask application.
+```
+
+To view saved memories:
+
+```text
+/memory
+```
+
+To delete a memory:
+
+```text
+/forget name
+```
+
+---
+
+# 💬 Conversation History
+
+SIFRA stores previous conversations locally.
+
+Use:
+
+```text
+/history
+```
+
+to browse previous conversations.
+
+---
+
+# 🗄 Database
+
+SIFRA automatically creates a SQLite database:
+
+```text
+database/sifra.db
+```
+
+The database stores:
+
+| Table | Purpose |
+|---|---|
+| `conversations` | Conversation sessions |
+| `messages` | Messages from conversations |
+| `memories` | Long-term saved memories |
+
+---
+
+# 📁 Project Structure
+
+```text
+Sifra-Terminal-AI/
 │
-├── main.py                  ← Entry point
-│
-├── config.py                ← All settings & env vars
+├── main.py
+├── config.py
 │
 ├── core/
-│   ├── ai_engine.py         ← OpenAI-compatible AI client (swap-friendly)
-│   ├── personality.py       ← SIFRA's system prompt / character definition
-│   └── conversation.py      ← Session-level message history manager
+│   ├── ai_engine.py
+│   ├── personality.py
+│   └── conversation.py
 │
 ├── database/
-│   ├── database.py          ← SQLite helpers (init, messages, memories)
-│   └── sifra.db             ← Auto-created on first run
+│   ├── database.py
+│   └── sifra.db
 │
 ├── features/
-│   ├── memory.py            ← Long-term memory (save / show / forget)
-│   ├── history.py           ← Conversation history display
-│   └── commands.py          ← Slash-command dispatcher & registry
+│   ├── memory.py
+│   ├── history.py
+│   └── commands.py
 │
 ├── ui/
-│   ├── terminal_ui.py       ← Rich rendering (panels, spinner, messages)
-│   └── banner.py            ← Startup banner & branding
+│   ├── terminal_ui.py
+│   └── banner.py
 │
 ├── requirements.txt
 ├── .env.example
@@ -59,48 +392,71 @@ sifra/
 
 ---
 
-## ⚡ Quick Start
+# 🛠 Customizing SIFRA
 
-### 1. Clone / download the project
+## Change SIFRA's Personality
+
+Open:
+
+```text
+core/personality.py
+```
+
+Edit the `SIFRA_SYSTEM_PROMPT` to change SIFRA's personality, communication style, and behavior.
+
+---
+
+## Add a New Slash Command
+
+Open:
+
+```text
+features/commands.py
+```
+
+Example:
+
+```python
+def cmd_mycommand(args: str = "") -> None:
+    """My new command."""
+    print_info("Hello from my command!")
+
+COMMAND_REGISTRY["/mycommand"] = cmd_mycommand
+```
+
+---
+
+# 🛠 Troubleshooting
+
+## ModuleNotFoundError
+
+Make sure the virtual environment is activated.
+
+### macOS
 
 ```bash
-cd ~/Desktop/Projects/Sifra
+source .venv/bin/activate
+python3 -m pip install -r requirements.txt
 ```
 
-### 2. Create a virtual environment (recommended)
+### Windows
+
+```powershell
+.venv\Scripts\Activate.ps1
+python -m pip install -r requirements.txt
+```
+
+---
+
+## Python Command Not Found
+
+On macOS, use:
 
 ```bash
-python3 -m venv .venv
-source .venv/bin/activate        # macOS / Linux
-# .venv\Scripts\activate         # Windows
+python3 main.py
 ```
 
-### 3. Install dependencies
-
-```bash
-pip install -r requirements.txt
-```
-
-### 4. Configure your API key
-
-```bash
-cp .env.example .env
-```
-
-Open `.env` in any text editor and fill in your API key:
-
-```env
-AI_API_KEY=sk-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-AI_MODEL=gpt-4o-mini
-AI_BASE_URL=https://api.openai.com/v1
-```
-
-> **Where do I get an API key?**
-> - **OpenAI** → https://platform.openai.com/api-keys
-> - **Groq** (free tier) → https://console.groq.com
-> - **Ollama** (runs locally, free) → https://ollama.com — no key needed, set `AI_API_KEY=ollama`
-
-### 5. Run SIFRA
+instead of:
 
 ```bash
 python main.py
@@ -108,93 +464,53 @@ python main.py
 
 ---
 
-## 🔌 Switching AI Providers
+## Backend Connection Error
 
-Only your `.env` file needs to change — no code edits required.
+Make sure:
 
-| Provider | `AI_BASE_URL` | Example `AI_MODEL` |
-|---|---|---|
-| OpenAI | `https://api.openai.com/v1` | `gpt-4o-mini` |
-| Groq | `https://api.groq.com/openai/v1` | `llama3-8b-8192` |
-| Ollama (local) | `http://localhost:11434/v1` | `llama3` |
-| Together AI | `https://api.together.xyz/v1` | `mistralai/Mistral-7B` |
+- You have an active internet connection.
+- The SIFRA backend server is online.
+- You are using the latest version of SIFRA.
 
----
+To update the project:
 
-## 💬 Slash Commands
-
-| Command | Description |
-|---|---|
-| `/help` | Show all available commands |
-| `/new` | Start a fresh conversation (clears context) |
-| `/history` | Browse previous conversations |
-| `/memory` | View saved long-term memories |
-| `/forget <key>` | Delete a memory by key |
-| `/clear` | Clear the terminal screen |
-| `/about` | About SIFRA |
-| `/exit` | Exit SIFRA gracefully |
-
----
-
-## 🧠 Long-term Memory
-
-SIFRA automatically detects and saves important facts you share
-(your name, language preferences, project names, etc.) across sessions.
-
-**Example:**
-```
-You    ▸  My name is Het and I'm building a Flask app.
-SIFRA  ▸  Nice to meet you, Het! Flask is a great choice for Python web apps...
+```bash
+git pull
 ```
 
-Next time you open SIFRA, she'll already know your name.
+Then reinstall dependencies if required:
 
-Use `/memory` to see what's saved and `/forget name` to remove anything.
-
----
-
-## 🗄 Database
-
-SIFRA creates `database/sifra.db` automatically on first run.
-
-| Table | Columns |
-|---|---|
-| `conversations` | `id`, `created_at` |
-| `messages` | `id`, `conversation_id`, `role`, `content`, `timestamp` |
-| `memories` | `id`, `memory_key`, `memory_value`, `created_at` |
-
----
-
-## 🛠 Extending SIFRA
-
-### Add a new slash command
-
-In [`features/commands.py`](features/commands.py):
-
-```python
-def cmd_mycommand(args: str = "") -> None:
-    """My new command."""
-    print_info("Hello from my command!")
-
-# Then add to the registry:
-COMMAND_REGISTRY["/mycommand"] = cmd_mycommand
+```bash
+python3 -m pip install -r requirements.txt
 ```
 
-### Change SIFRA's personality
+---
 
-Edit [`core/personality.py`](core/personality.py) — the `SIFRA_SYSTEM_PROMPT` string.
+# 📋 Requirements
+
+- Python 3.11 or newer
+- Git
+- Internet connection
+
+### Normal users do NOT need:
+
+- ❌ OpenAI API key
+- ❌ Groq API key
+- ❌ xAI API key
+- ❌ Any paid AI subscription
 
 ---
 
-## 📋 Requirements
-
-- Python 3.11+
-- Internet connection (or local Ollama instance)
-- An API key from any OpenAI-compatible provider
-
----
-
-## 📄 License
+# 📄 License
 
 This project was created as a university Application Development minor project.
+
 Free to use and modify for educational purposes.
+
+---
+
+# 🚀 Enjoy SIFRA!
+
+Clone the repository, run the application, and start chatting with your intelligent terminal companion.
+
+**Made with ❤️ using Python, Rich, and AI 🤖**
