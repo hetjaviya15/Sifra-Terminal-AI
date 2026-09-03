@@ -1,0 +1,13 @@
+{
+  "venvPath": ".",
+  "venv": ".venv",
+  "extraPaths": ["."],
+  "include": [
+    "core",
+    "database",
+    "features",
+    "ui",
+    "main.py",
+    "config.py"
+  ]
+}
