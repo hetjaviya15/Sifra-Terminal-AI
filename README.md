@@ -513,4 +513,4 @@ Free to use and modify for educational purposes.
 
 Clone the repository, run the application, and start chatting with your intelligent terminal companion.
 
-**Made with ❤️ using Python, Rich, and AI 🤖**
+**Made with ❤️ using Python**
